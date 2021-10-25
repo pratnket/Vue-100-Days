@@ -11,3 +11,5 @@ yarn install
 ```
 yarn serve
 ```
+
+![image](public/image/Preview/2021-10-26_015818.png)
