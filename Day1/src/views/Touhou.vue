@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- 動態元件（Dynamic-Components）是指可根據傳入參數的不同，而去切換不同的元件 -->
-    <component :is="status" :key="refresh" />
     <div id="Touhou">
+      <component :is="status" :key="refresh" />
       <a href="javascript:void(0)" @click="doSwitch('露娜柴爾德')"
         >露娜柴爾德</a
       >
@@ -79,7 +79,9 @@ export default class Touhou extends Vue {
 #Touhou{
   a{
     font-weight: bold;
-    color: #2c3e50;
+    color: red;
+    position: relative;
+    z-index: 2;
   }
 }
 </style>
