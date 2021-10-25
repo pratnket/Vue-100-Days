@@ -1,4 +1,4 @@
-# touhou
+# Day01 - 動態元件之應用
 
 ## 專案安裝
 
@@ -16,8 +16,6 @@ yarn serve
 - vue + typescript
 - Vuex
 - Router
-
-Day01 - 動態元件之應用
 
 ### 預覽畫面
 
