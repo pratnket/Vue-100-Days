@@ -13,3 +13,9 @@ yarn serve
 ```
 
 ![image](public/image/Preview/2021-10-26_015818.png)
+
+
+![image](public/image/Preview/2021-10-26_015832.png)
+
+
+![image](public/image/Preview/2021-10-26_015846.png)
