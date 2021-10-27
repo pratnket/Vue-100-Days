@@ -28,6 +28,8 @@ https://codepen.io/pratnket/pen/VwzpqJr?editors=1010
 
 ### 前言
 
+Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串的過程，我們將它稱作生命週期。 在這個過程中， Vue.js 提供了開發者在這些週期階段做對應處理的 callback function， 這些 callback function 我們就稱它叫生命週期的 Hooks function。
+
 ---
 
 生命週期:
