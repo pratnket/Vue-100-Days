@@ -18,6 +18,10 @@ yarn serve
 -   Vuex
 -   Router
 
+### 線上預覽
+
+https://codepen.io/pratnket/pen/VwzpqJr?editors=1010
+
 ### 預覽畫面
 
 ![image](public/image/Preview/index.jpg)
