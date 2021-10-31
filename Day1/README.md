@@ -67,8 +67,8 @@ vue create hello-world
 
 是否使用 Class 風格裝飾器？
 
-> 即原本是：home = new Vue() 創建 vue 實體化
-> 使用裝飾器後：class home extends Vue{}
+-   即原本是：home = new Vue() 創建 vue 實體化
+-   使用裝飾器後：class home extends Vue{}
 
 ```
 ? Use class-style component syntax? (y/N) N
