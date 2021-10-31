@@ -45,24 +45,23 @@ vue create hello-world
 ```
 ? Check the features needed for your project: (Press <space> to select, <a> to toggle all, <i> to invert selection)
 
-> (*) Choose Vue version // 選擇 Vue 版本
-> (*) Babel // javascript 轉譯器
-> (*) TypeScript // 使用 TypeScript 編寫源碼
+> (*) Choose Vue version                // 選擇 Vue 版本
+> (*) Babel                             // javascript 轉譯器
+> (*) TypeScript                        // 使用 TypeScript 編寫源碼
 > ( ) Progressive Web App (PWA) Support // 漸進式 WEB 應用
-> (*) Router // 使用 vue-router
-> (*) Vuex // 使用 vuex
-> (*) CSS Pre-processors // CSS 前處理器
-> (*) Linter / Formatter // 格式化工具
-> ( ) Unit Testing // 單元測試
-> ( ) E2E Testing // E2E 測試
+> (*) Router                            // 使用 vue-router
+> (*) Vuex                              // 使用 vuex
+> (*) CSS Pre-processors                // CSS 前處理器
+> (*) Linter / Formatter                // 格式化工具
+> ( ) Unit Testing                      // 單元測試
+> ( ) E2E Testing                       // E2E 測試
 ```
 
 這裡要選擇 3.x Vue.js 的版本，按下 Enter 鍵，
 
 ```
 ? Choose a version of Vue.js that you want to start the project with (Use arrow keys)
-2.x
-
+  2.x
 > 3.x (Preview)
 ```
 
@@ -98,9 +97,9 @@ vue create hello-world
 
 選擇代碼格式化檢測
 
-```
 > 因為是用 typescript 所以選擇 TSLint
 
+```
 ? Pick a linter / formatter config: (Use arrow keys)
   ESLint with error prevention only // 只進行抱錯提醒
   ESLint + Airbnb config // 不嚴謹模式
@@ -143,4 +142,4 @@ $ cd hello-world
 $ yarn serve
 ```
 
-在瀏覽器網址列打上 http://localhost:8008，即可看到歡迎頁面。
+在瀏覽器網址列打上 [http://localhost:8008](http://localhost:8008)，即可看到歡迎頁面。
