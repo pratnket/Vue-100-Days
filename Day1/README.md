@@ -1,333 +1,158 @@
-# Day01 - Vue 元件的生命週期與更新機制
+# Day01 - Vue.js 開發環境建置
 
-## 專案安裝
+Vue.js 的開發環境建置有以下幾種方法：
 
-```
-yarn install
-```
+-   使用 CDN 或下載後使用本機檔案
+-   使用 vue-cli(腳手架)
 
-### 開發編譯和熱重載
+# 使用 CDN 或下載後使用本機檔案
 
-```
-yarn serve
-```
+# 使用 vue-cli(腳手架)
 
-### 專案環境
-
--   vue + typescript
--   Vuex
--   Router
-
-### 線上預覽
-
-https://codepen.io/pratnket/pen/VwzpqJr?editors=1010
-
-### 預覽畫面
-
-![image](public/image/Preview/index.jpg)
-
-### 前言
-
-Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串的過程，我們將它稱作生命週期。 在這個過程中， Vue.js 提供了開發者在這些週期階段做對應處理的 callback function， 這些 callback function 我們就稱它叫生命週期的 Hooks function。
-
----
-
-生命週期:
-
--   beforeCreate
-    -   Vue 實體被建立，狀態與事件都尚未初始化
--   created
-    -   Vue 實體已建立，狀態與事件已初始化完成 (prop、data、computed 等屬性已建立，vm.$el 屬性無法使用 )
--   beforeMount
-    -   Vue 實體尚未與模板 (DOM 節點) 綁定
--   mounted
-    -   實體與掛載完成， el 的目標 DOM 被 $el 所替換 (可以視作 jQuery 的 Ready)
--   beforeUpdate
-    -   Vue 實體尚未與模板 (DOM 節點) 綁定
--   updated
-    -   Vue 當狀態被變動時，畫面已同步更新完成
--   beforeDestroy
-    -   (2.X)Vue 實體物件被銷毀前
--   beforeUnmount
-    -   (3.0)Vue 實體物件被銷毀前
--   destroyed (2.X)
-    -   Vue 實體物件被銷毀完畢
--   unmounted (3.0)
-    -   Vue 實體物件被銷毀完畢
--   errorCaptured
-    -   子/孫代元件的錯誤被捕獲時觸發
--   activated
-    -   Vue 元件被啟動時觸發，搭配 keep-alive 使用
--   deactivated
-    -   Vue 元件被解除時觸發，搭配 keep-alive 使用
-
-### 生命週期與 Hooks function
-
----
-
-![image](public/image/Preview/status.png)
+## 安裝 vue-cli
 
 ```
-// Views/Home.vue
-
-<template>
-  <div class="home">
-    <p>App入口</p>
-    <p>{{ message }}</p>
-    <button v-on:click="getRemoteMessage">刷新數值</button>
-    <button @click="ToggleTouhouClick">{{ ToggleTouhouStatus }}Touhou</button>
-    <button @click="ToggleZunClick">{{ ToggleZunStatus }}Zun</button>
-    <hr />
-    <Touhou v-if="ToggleTouhou" />
-    <hr />
-    <keep-alive>
-      <component :is="ComponentsName" v-if="ToggleZun"></component>
-    </keep-alive>
-    <hr />
-    <div>生命週期觸發順序</div>
-    <ul>
-      <li v-for="(item, index) in outputs" :key="index">{{ item }}</li>
-    </ul>
-  </div>
-</template>
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
 ```
 
-```
-// Views/Home.vue
-
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import Touhou from "@/components/Touhou.vue";
-import Zun from "@/components/Zun.vue";
-
-@Component({
-  components: {
-    Touhou,
-    // eslint-disable-next-line vue/no-unused-components
-    Zun,
-  },
-})
-export default class Home extends Vue {
-  // 訊息
-  private message = "初始化訊息";
-
-  // Touhou元件
-  private ToggleTouhou = true;
-  private ToggleTouhouStatus = "隱藏";
-  // Zun元件
-  private ToggleZun = true;
-  private ToggleZunStatus = "隱藏";
-
-  // 切換元件
-  private ComponentsName = "Zun";
-
-  // 調試訊息次數，防止重覆刷新
-  private outputsCount = 0;
-  // 調試訊息
-  private outputs: Array<string> = [];
-
-  private beforeCreate() {
-    // Vue 實體被建立，狀態與事件都尚未初始化
-    console.log("1.beforeCreate-App | Vue 實體被建立，狀態與事件都尚未初始化");
-  }
-
-  private created() {
-    // Vue 實體已建立，狀態與事件已初始化完成 (prop、data、computed 等屬性已建立，vm.$el 屬性無法使用 )
-    console.log("2.created-App");
-    this.outputs.push(
-      "2.created-App | Vue 實體已建立，狀態與事件已初始化完成 (prop、data、computed 等屬性已建立，vm.$el 屬性無法使用 )"
-    );
-  }
-  private beforeMount() {
-    // Vue 實體尚未與模板 (DOM 節點) 綁定
-    console.log("3.beforeMount-App");
-    this.outputs.push("3.beforeMount-App | Vue 實體尚未與模板 (DOM 節點) 綁定");
-  }
-  private mounted() {
-    // Vue 實體與掛載完成， el 的目標 DOM 被 $el 所替換 (可以視作 jQuery 的 Ready)
-    console.log("4.mounted-App");
-    this.outputs.push(
-      "4.beforeMount-App | Vue 實體與掛載完成， el 的目標 DOM 被 $el 所替換 (可以視作 jQuery 的 Ready)"
-    );
-  }
-  /**
-   * 初始化不會觸發
-   */
-  private beforeUpdate() {
-    // 當狀態被變動時，畫面同步更新前
-    console.log("5.beforeUpdate-App");
-    if (this.outputsCount < 2) {
-      this.outputs.push("5.beforeUpdate-App | 當狀態被變動時，畫面同步更新前");
-      // 防止一直刷新
-      this.outputsCount += 1;
-    }
-  }
-  private updated() {
-    // 當狀態被變動時，畫面已同步更新完成
-    console.log("6.updated-App");
-    if (this.outputsCount < 2) {
-      this.outputs.push("6.updated-App | 當狀態被變動時，畫面已同步更新完成");
-      // 防止一直刷新
-      this.outputsCount += 1;
-    }
-  }
-  private errorCaptured(err: any, component: any, details: any) {
-    // 子/孫代元件的錯誤被捕獲時觸發
-    console.log("9.errorCaptured-Touhou");
-    console.log(err, component, details);
-    this.outputs.push("9.updated-App");
-  }
-
-  private getRemoteMessage() {
-    Promise.resolve("點擊按鈕後更新的訊息")
-      .then((res) => {
-        if (this.message === "初始化訊息") {
-          this.message = res;
-        } else {
-          this.message = "初始化訊息";
-        }
-      })
-      .then(() => {
-        // 清零計數器
-        this.outputsCount = 0;
-      });
-  }
-  private ToggleTouhouClick() {
-    // 透過 v-if 來達成子組件的銷毀
-    // v-show 只會隱藏起來，html還是存在
-    this.ToggleTouhou = !this.ToggleTouhou;
-    // 按鈕文字的變更
-    if (this.ToggleTouhouStatus === "隱藏") {
-      this.ToggleTouhouStatus = "顯示";
-    } else {
-      this.ToggleTouhouStatus = "隱藏";
-    }
-    // 清零計數器
-    this.outputsCount = 0;
-  }
-
-  private ToggleZunClick() {
-    // 透過 v-if 來達成子組件的銷毀
-    // v-show 只會隱藏起來，html還是存在
-    this.ToggleZun = !this.ToggleZun;
-    // 按鈕文字的變更
-    if (this.ToggleZunStatus === "隱藏") {
-      this.ToggleZunStatus = "顯示";
-    } else {
-      this.ToggleZunStatus = "隱藏";
-    }
-    // 清零計數器
-    this.outputsCount = 0;
-  }
-}
-</script>
-```
+## vue -V 檢查版本
 
 ```
-// Components/Touhou.vue
-
-<template>
-  <div>
-    <p>Touhou元件(打開F12的console檢查生命週期)</p>
-    <p>銷毀元件，不保留輸入狀態</p>
-    <input type="text" />
-    <ul>
-      <li v-for="(item, index) in menuItems" :key="index">{{ item.text }}</li>
-    </ul>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class Touhou extends Vue {
-  private count = 0;
-
-  private menuItems: { text: string }[] = [
-    {
-      text: "日光之妖精",
-    },
-    {
-      text: "月光之妖精",
-    },
-    {
-      text: "星光之妖精",
-    },
-  ];
-
-  private mounted() {
-    // 當狀態被變動時，畫面同步更新前
-    console.log("5.beforeUpdate-App");
-    // 故意引發錯誤讓 errorCaptured 捕捉
-    // a
-  }
-
-  private activated() {
-    // Vue 元件被啟動時觸發，搭配 keep-alive 使用
-    console.log("9.activated-Zun");
-  }
-
-  private deactivated() {
-    // Vue 元件被解除時觸發，搭配 keep-alive 使用
-    console.log("10.deactivated-Zun");
-  }
-}
-</script>
+vue -V
 ```
 
+## 搭建專案
+
+運行以下命令來創建一個新項目
+
 ```
-// Components/Zun.vue
-
-<template>
-  <div>
-    <p>Zun元件(打開F12的console檢查生命週期)</p>
-    <p>銷毀元件，保留輸入狀態</p>
-    <input type="text" />
-    <ul>
-      <li v-for="(item, index) in menuItems" :key="index">{{ item.text }}</li>
-    </ul>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class Zun extends Vue {
-  private count = 0;
-
-  private menuItems: { text: string }[] = [
-    {
-      text: "幻想の境界",
-    },
-    {
-      text: "隙間妖怪的式神",
-    },
-    {
-      text: "凶兆の黑貓",
-    },
-  ];
-
-  private beforeUnmount() {
-    // Vue 實體物件被銷毀前
-    console.log("7.beforeUnmount-Zun");
-  }
-
-  private unmounted() {
-    // Vue 實體物件被銷毀完畢
-    console.log("8.unmounted-Zun");
-  }
-
-  private activated() {
-    // Vue 元件被啟動時觸發，搭配 keep-alive 使用
-    console.log("9.activated-Zun");
-  }
-
-  private deactivated() {
-    // Vue 元件被解除時觸發，搭配 keep-alive 使用
-    console.log("10.deactivated-Zun");
-  }
-}
-</script>
+vue create hello-world
 ```
+
+這時候我們選擇第三項手動選擇。選擇的時候按 Enter 鍵就可以實現。(如果這時候你沒有下面的三個選項，說明的 vue-cli 是舊版本，需要你更新。)
+
+```
+? Please pick a preset: (Use arrow keys)            // 請選擇預選項
+  Default ([Vue 2] babel, eslint)                   // 使用Vue2預設模板進行建立
+  Default (Vue 3 Preview) ([Vue 3] babel, eslint)   // 使用Vue3預設模板進行建立
+> Manually select features                          // 手動選擇(自定義)的意思
+``
+
+選擇TypeScript的選項，然後再按Enter鍵進入下一層選擇
+```
+
+? Check the features needed for your project: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+
+> (_) Choose Vue version // 選擇 Vue 版本
+> (_) Babel // javascript 轉譯器
+> (_) TypeScript // 使用 TypeScript 編寫源碼
+> ( ) Progressive Web App (PWA) Support // 漸進式 WEB 應用
+> (_) Router // 使用 vue-router
+> (_) Vuex // 使用 vuex
+> (_) CSS Pre-processors // CSS 前處理器
+> (\*) Linter / Formatter // 格式化工具
+> ( ) Unit Testing // 單元測試
+> ( ) E2E Testing // E2E 測試
+
+```
+
+這裡要選擇 3.x Vue.js 的版本，按下Enter鍵，
+```
+
+? Choose a version of Vue.js that you want to start the project with (Use arrow keys)
+2.x
+
+> 3.x (Preview)
+
+```
+
+是否使用Class風格裝飾器？
+> 即原本是：home = new Vue() 創建 vue 實體化
+> 使用裝飾器後：class home extends Vue{}
+```
+
+? Use class-style component syntax? (y/N) N
+
+```
+
+是否使用TypeScript和Babel的形式編譯 JSX.這裡我們也選擇Y
+```
+
+? Use Babel alongside TypeScript (required for modern mode,auto-detected polyfills, transpiling JSX)? (Y/n) Y
+
+```
+
+路由模式
+```
+
+? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n)
+
+```
+
+我選擇 Sass/SCSS (with dart-sass)
+```
+
+> Sass/SCSS (with dart-sass) // 保存後編譯
+> Sass/SCSS (with node-sass) // 實時編譯
+> Less
+> Stylus
+
+```
+
+選擇代碼格式化檢測
+> 因為是用typescript 所以選擇TSLint
+```
+
+? Pick a linter / formatter config: (Use arrow keys)
+ESLint with error prevention only // 只進行抱錯提醒
+ESLint + Airbnb config // 不嚴謹模式
+ESLint + Standard config // 正常模式
+ESLint + Prettier // 嚴格模式
+
+> TSLint (deprecated) // typescript 格式驗證工具
+
+```
+
+代碼檢查方式 保存時檢查
+```
+
+? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+
+> (\*) Lint on save
+> ( ) Lint and fix on commit
+
+```
+
+文件配置
+> 我選擇 package.json
+```
+
+? Where do you prefer placing config for Babel, ESLint, etc.?
+In dedicated config files
+
+> In package.json
+
+```
+
+將此保存為未來項目的預設？
+```
+
+? Save this as a preset for future projects? (y/N) N
+
+```
+
+OK，等待項目加載各種包...
+加載完畢
+```
+
+$ cd hello-world
+$ yarn serve
+
+```
+
+在瀏覽器網址列打上http://localhost:8008，即可看到歡迎頁面。
+```
+
+![image](images/Vue-Create-Project.jpg)
