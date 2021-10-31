@@ -45,13 +45,13 @@ vue create hello-world
 ```
 ? Check the features needed for your project: (Press <space> to select, <a> to toggle all, <i> to invert selection)
 
-> (_) Choose Vue version // 選擇 Vue 版本
-> (_) Babel // javascript 轉譯器
-> (_) TypeScript // 使用 TypeScript 編寫源碼
+> (*) Choose Vue version // 選擇 Vue 版本
+> (*) Babel // javascript 轉譯器
+> (*) TypeScript // 使用 TypeScript 編寫源碼
 > ( ) Progressive Web App (PWA) Support // 漸進式 WEB 應用
-> (_) Router // 使用 vue-router
-> (_) Vuex // 使用 vuex
-> (_) CSS Pre-processors // CSS 前處理器
+> (*) Router // 使用 vue-router
+> (*) Vuex // 使用 vuex
+> (*) CSS Pre-processors // CSS 前處理器
 > (*) Linter / Formatter // 格式化工具
 > ( ) Unit Testing // 單元測試
 > ( ) E2E Testing // E2E 測試
@@ -68,10 +68,10 @@ vue create hello-world
 
 是否使用 Class 風格裝飾器？
 
-```
 > 即原本是：home = new Vue() 創建 vue 實體化
 > 使用裝飾器後：class home extends Vue{}
 
+```
 ? Use class-style component syntax? (y/N) N
 ```
 
@@ -119,8 +119,6 @@ vue create hello-world
 ```
 
 文件配置
-
-> 我選擇 package.json
 
 ```
 ? Where do you prefer placing config for Babel, ESLint, etc.?
