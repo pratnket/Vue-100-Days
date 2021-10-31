@@ -143,8 +143,12 @@ In dedicated config files
 
 ```
 
+配置預覽
+![image](images/Vue-Create-Project.jpg)
+
 OK，等待項目加載各種包...
 加載完畢
+
 ```
 
 $ cd hello-world
@@ -152,7 +156,6 @@ $ yarn serve
 
 ```
 
-在瀏覽器網址列打上http://localhost:8008，即可看到歡迎頁面。
-```
+在瀏覽器網址列打上 http://localhost:8008，即可看到歡迎頁面。
 
-![image](images/Vue-Create-Project.jpg)
+```
