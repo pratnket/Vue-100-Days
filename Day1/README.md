@@ -5,9 +5,9 @@ Vue.js 的開發環境建置有以下幾種方法：
 -   使用 CDN 或下載後使用本機檔案
 -   使用 vue-cli(腳手架)
 
-# 使用 CDN 或下載後使用本機檔案
+## 使用 CDN 或下載後使用本機檔案
 
-## 創建一個 index.html
+### 創建一個 index.html
 
 ```
 <div id="app">
@@ -27,9 +27,9 @@ Vue.js 的開發環境建置有以下幾種方法：
 打開頁面就會看到
 Hello Touohu
 
-# 使用 vue-cli(腳手架)
+## 使用 vue-cli(腳手架)
 
-## 安裝 vue-cli
+### 安裝 vue-cli
 
 ```
 npm install -g @vue/cli
@@ -37,13 +37,13 @@ npm install -g @vue/cli
 yarn global add @vue/cli
 ```
 
-## vue -V 檢查版本
+### vue -V 檢查版本
 
 ```
 vue -V
 ```
 
-## 搭建專案
+### 搭建專案
 
 運行以下命令來創建一個新項目
 

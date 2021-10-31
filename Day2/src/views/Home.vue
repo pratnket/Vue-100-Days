@@ -1,75 +1,3 @@
-# Day02 - Vue 元件的生命週期與更新機制
-
-## 專案安裝
-
-```
-yarn install
-```
-
-### 開發編譯和熱重載
-
-```
-yarn serve
-```
-
-### 專案環境
-
--   vue + typescript
--   Vuex
--   Router
-
-### 線上預覽
-
-https://codepen.io/pratnket/pen/VwzpqJr?editors=1010
-
-### 預覽畫面
-
-![image](public/image/Preview/index.jpg)
-
-### 前言
-
-Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串的過程，我們將它稱作生命週期。 在這個過程中， Vue.js 提供了開發者在這些週期階段做對應處理的 callback function， 這些 callback function 我們就稱它叫生命週期的 Hooks function。
-
----
-
-生命週期:
-
--   beforeCreate
-    -   Vue 實體被建立，狀態與事件都尚未初始化
--   created
-    -   Vue 實體已建立，狀態與事件已初始化完成 (prop、data、computed 等屬性已建立，vm.$el 屬性無法使用 )
--   beforeMount
-    -   Vue 實體尚未與模板 (DOM 節點) 綁定
--   mounted
-    -   實體與掛載完成， el 的目標 DOM 被 $el 所替換 (可以視作 jQuery 的 Ready)
--   beforeUpdate
-    -   Vue 實體尚未與模板 (DOM 節點) 綁定
--   updated
-    -   Vue 當狀態被變動時，畫面已同步更新完成
--   beforeDestroy
-    -   (2.X)Vue 實體物件被銷毀前
--   beforeUnmount
-    -   (3.0)Vue 實體物件被銷毀前
--   destroyed (2.X)
-    -   Vue 實體物件被銷毀完畢
--   unmounted (3.0)
-    -   Vue 實體物件被銷毀完畢
--   errorCaptured
-    -   子/孫代元件的錯誤被捕獲時觸發
--   activated
-    -   Vue 元件被啟動時觸發，搭配 keep-alive 使用
--   deactivated
-    -   Vue 元件被解除時觸發，搭配 keep-alive 使用
-
-### 生命週期與 Hooks function
-
----
-
-![image](public/image/Preview/status.png)
-
-```
-// Views/Home.vue
-
 <template>
   <div class="home">
     <p>App入口</p>
@@ -90,10 +18,6 @@ Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串�
     </ul>
   </div>
 </template>
-```
-
-```
-// Views/Home.vue
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
@@ -155,7 +79,7 @@ export default class Home extends Vue {
    */
   private beforeUpdate() {
     // 當狀態被變動時，畫面同步更新前
-    console.log("5.beforeUpdate-App");
+    // console.log("5.beforeUpdate-App");
     if (this.outputsCount < 2) {
       this.outputs.push("5.beforeUpdate-App | 當狀態被變動時，畫面同步更新前");
       // 防止一直刷新
@@ -164,7 +88,7 @@ export default class Home extends Vue {
   }
   private updated() {
     // 當狀態被變動時，畫面已同步更新完成
-    console.log("6.updated-App");
+    // console.log("6.updated-App");
     if (this.outputsCount < 2) {
       this.outputs.push("6.updated-App | 當狀態被變動時，畫面已同步更新完成");
       // 防止一直刷新
@@ -221,113 +145,5 @@ export default class Home extends Vue {
   }
 }
 </script>
-```
 
-```
-// Components/Touhou.vue
-
-<template>
-  <div>
-    <p>Touhou元件(打開F12的console檢查生命週期)</p>
-    <p>銷毀元件，不保留輸入狀態</p>
-    <input type="text" />
-    <ul>
-      <li v-for="(item, index) in menuItems" :key="index">{{ item.text }}</li>
-    </ul>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class Touhou extends Vue {
-  private count = 0;
-
-  private menuItems: { text: string }[] = [
-    {
-      text: "日光之妖精",
-    },
-    {
-      text: "月光之妖精",
-    },
-    {
-      text: "星光之妖精",
-    },
-  ];
-
-  private mounted() {
-    // 當狀態被變動時，畫面同步更新前
-    console.log("5.beforeUpdate-App");
-    // 故意引發錯誤讓 errorCaptured 捕捉
-    // a
-  }
-
-  private activated() {
-    // Vue 元件被啟動時觸發，搭配 keep-alive 使用
-    console.log("9.activated-Zun");
-  }
-
-  private deactivated() {
-    // Vue 元件被解除時觸發，搭配 keep-alive 使用
-    console.log("10.deactivated-Zun");
-  }
-}
-</script>
-```
-
-```
-// Components/Zun.vue
-
-<template>
-  <div>
-    <p>Zun元件(打開F12的console檢查生命週期)</p>
-    <p>銷毀元件，保留輸入狀態</p>
-    <input type="text" />
-    <ul>
-      <li v-for="(item, index) in menuItems" :key="index">{{ item.text }}</li>
-    </ul>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class Zun extends Vue {
-  private count = 0;
-
-  private menuItems: { text: string }[] = [
-    {
-      text: "幻想の境界",
-    },
-    {
-      text: "隙間妖怪的式神",
-    },
-    {
-      text: "凶兆の黑貓",
-    },
-  ];
-
-  private beforeUnmount() {
-    // Vue 實體物件被銷毀前
-    console.log("7.beforeUnmount-Zun");
-  }
-
-  private unmounted() {
-    // Vue 實體物件被銷毀完畢
-    console.log("8.unmounted-Zun");
-  }
-
-  private activated() {
-    // Vue 元件被啟動時觸發，搭配 keep-alive 使用
-    console.log("9.activated-Zun");
-  }
-
-  private deactivated() {
-    // Vue 元件被解除時觸發，搭配 keep-alive 使用
-    console.log("10.deactivated-Zun");
-  }
-}
-</script>
-```
+<style scoped lang="scss"></style>
