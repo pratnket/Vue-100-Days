@@ -38,11 +38,11 @@ vue create hello-world
   Default ([Vue 2] babel, eslint)                   // 使用Vue2預設模板進行建立
   Default (Vue 3 Preview) ([Vue 3] babel, eslint)   // 使用Vue3預設模板進行建立
 > Manually select features                          // 手動選擇(自定義)的意思
-``
-
-選擇TypeScript的選項，然後再按Enter鍵進入下一層選擇
 ```
 
+選擇 TypeScript 的選項，然後再按 Enter 鍵進入下一層選擇
+
+```
 ? Check the features needed for your project: (Press <space> to select, <a> to toggle all, <i> to invert selection)
 
 > (_) Choose Vue version // 選擇 Vue 版本
@@ -52,95 +52,86 @@ vue create hello-world
 > (_) Router // 使用 vue-router
 > (_) Vuex // 使用 vuex
 > (_) CSS Pre-processors // CSS 前處理器
-> (\*) Linter / Formatter // 格式化工具
+> (*) Linter / Formatter // 格式化工具
 > ( ) Unit Testing // 單元測試
 > ( ) E2E Testing // E2E 測試
-
 ```
 
-這裡要選擇 3.x Vue.js 的版本，按下Enter鍵，
-```
+這裡要選擇 3.x Vue.js 的版本，按下 Enter 鍵，
 
+```
 ? Choose a version of Vue.js that you want to start the project with (Use arrow keys)
 2.x
 
 > 3.x (Preview)
-
 ```
 
-是否使用Class風格裝飾器？
+是否使用 Class 風格裝飾器？
+
+```
 > 即原本是：home = new Vue() 創建 vue 實體化
 > 使用裝飾器後：class home extends Vue{}
-```
 
 ? Use class-style component syntax? (y/N) N
-
 ```
 
-是否使用TypeScript和Babel的形式編譯 JSX.這裡我們也選擇Y
-```
+是否使用 TypeScript 和 Babel 的形式編譯 JSX.這裡我們也選擇 Y
 
+```
 ? Use Babel alongside TypeScript (required for modern mode,auto-detected polyfills, transpiling JSX)? (Y/n) Y
-
 ```
 
 路由模式
+
 ```
-
 ? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n)
-
 ```
 
 我選擇 Sass/SCSS (with dart-sass)
-```
 
+```
 > Sass/SCSS (with dart-sass) // 保存後編譯
 > Sass/SCSS (with node-sass) // 實時編譯
 > Less
 > Stylus
-
 ```
 
 選擇代碼格式化檢測
-> 因為是用typescript 所以選擇TSLint
+
 ```
+> 因為是用 typescript 所以選擇 TSLint
 
 ? Pick a linter / formatter config: (Use arrow keys)
-ESLint with error prevention only // 只進行抱錯提醒
-ESLint + Airbnb config // 不嚴謹模式
-ESLint + Standard config // 正常模式
-ESLint + Prettier // 嚴格模式
-
+  ESLint with error prevention only // 只進行抱錯提醒
+  ESLint + Airbnb config // 不嚴謹模式
+  ESLint + Standard config // 正常模式
+  ESLint + Prettier // 嚴格模式
 > TSLint (deprecated) // typescript 格式驗證工具
-
 ```
 
 代碼檢查方式 保存時檢查
-```
 
+```
 ? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)
 
-> (\*) Lint on save
+> (*) Lint on save
 > ( ) Lint and fix on commit
-
 ```
 
 文件配置
+
 > 我選擇 package.json
+
 ```
-
 ? Where do you prefer placing config for Babel, ESLint, etc.?
-In dedicated config files
-
+  In dedicated config files
 > In package.json
-
 ```
 
 將此保存為未來項目的預設？
+
 ```
-
 ? Save this as a preset for future projects? (y/N) N
-
 ```
 
 配置預覽
@@ -150,12 +141,8 @@ OK，等待項目加載各種包...
 加載完畢
 
 ```
-
 $ cd hello-world
 $ yarn serve
-
 ```
 
 在瀏覽器網址列打上 http://localhost:8008，即可看到歡迎頁面。
-
-```
