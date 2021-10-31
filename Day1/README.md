@@ -7,6 +7,26 @@ Vue.js 的開發環境建置有以下幾種方法：
 
 # 使用 CDN 或下載後使用本機檔案
 
+## 創建一個 index.html
+
+```
+<div id="app">
+    {{ message }}
+</div>
+<script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Touohu!',
+        },
+    });
+</script>
+```
+
+打開頁面就會看到
+Hello Touohu
+
 # 使用 vue-cli(腳手架)
 
 ## 安裝 vue-cli
@@ -142,4 +162,5 @@ $ cd hello-world
 $ yarn serve
 ```
 
-在瀏覽器網址列打上 [http://localhost:8008](http://localhost:8008)，即可看到歡迎頁面。
+在瀏覽器網址列打上 [http://localhost:8080](http://localhost:8080)，即可看到歡迎頁面。
+![image](images/Preview.jpg)
