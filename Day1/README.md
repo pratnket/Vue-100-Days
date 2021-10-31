@@ -77,7 +77,7 @@ vue create hello-world
 > ( ) E2E Testing                       // E2E 測試
 ```
 
-這裡要選擇 3.x Vue.js 的版本，按下 Enter 鍵，
+這裡要選擇 3.x Vue.js 的版本，按下 Enter 鍵
 
 ```
 ? Choose a version of Vue.js that you want to start the project with (Use arrow keys)
@@ -103,16 +103,17 @@ vue create hello-world
 路由模式
 
 ```
-? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n)
+? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n) Y
 ```
 
-我選擇 Sass/SCSS (with dart-sass)
+選擇 CSS 預處理器
 
 ```
+? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): (Use arrow keys)
 > Sass/SCSS (with dart-sass) // 保存後編譯
-> Sass/SCSS (with node-sass) // 實時編譯
-> Less
-> Stylus
+  Sass/SCSS (with node-sass) // 實時編譯
+  Less
+  Stylus
 ```
 
 選擇代碼格式化檢測
