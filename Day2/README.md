@@ -57,19 +57,19 @@
 ## 程式碼預覽
 
 -   ## Q1
--   ## 範例-建立實體 Vue 與綁定
-    -   beforeCreate、created
-        -   https://codepen.io/pratnket/pen/vYJpJQM
+    -   ## 範例-建立實體 Vue 與綁定
+        -   beforeCreate、created
+            -   https://codepen.io/pratnket/pen/vYJpJQM
 
 -   ## Q2
--   ## 範例-模板編譯
-    -   beforeMount、mounted
-        -   https://codepen.io/pratnket/pen/abyqvze
+    -   ## 範例-模板編譯
+        -   beforeMount、mounted
+            -   https://codepen.io/pratnket/pen/abyqvze
 
 -   ## Q3
--   ## 範例-狀態被更新、網頁畫面重繪
-    -   beforeMount、mounted
-        -   https://codepen.io/pratnket/pen/BadYjYg
+    -   ## 範例-狀態被更新、網頁畫面重繪
+        -   beforeMount、mounted
+            -   https://codepen.io/pratnket/pen/BadYjYg
 
 ## 專案指令
 
