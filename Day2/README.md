@@ -1,5 +1,11 @@
 # Day02 - Vue 元件的生命週期與更新機制
 
+## 程式碼預覽
+
+-   ## 創建實例時
+    -   beforeCreate、created
+    -   https://codepen.io/pratnket/pen/VwzpqJr?editors=1010
+
 ## 專案安裝
 
 ```
@@ -17,10 +23,6 @@ yarn serve
 -   vue + typescript
 -   Vuex
 -   Router
-
-### 線上預覽
-
--   https://codepen.io/pratnket/pen/VwzpqJr?editors=1010
 
 ### 前言
 
