@@ -2,17 +2,24 @@
 
 ## 生命週期與 Hooks function
 
----
-
 ![image](public/image/Preview/status.png)
-
----
 
 ## 程式碼預覽
 
 -   ## 創建實例時
     -   beforeCreate、created
         -   https://codepen.io/pratnket/pen/vYJpJQM
+
+<!-- 目錄 -->
+<details>
+  <summary>目錄</summary>
+  <ol>
+    <li>
+      <a href="#beforeCreate">beforeCreate</a>
+      <a href="#created">created</a>
+    </li>
+  </ol>
+</details>
 
 ## 專案安裝
 
@@ -71,20 +78,20 @@ Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串�
 
 ---
 
-beforeCreate:
+<!-- beforeCreate -->
+
+## beforeCreate:
 
 -   類型:Function
 -   詳細說明:
     在實例初始化之後、進行數據偵聽和事件/偵聽器的配置之前同步調用。
 
-created
+---
+
+<!-- created -->
+
+## created
 
 -   類型:Function
 -   詳細說明:
     在實例創建完成後被立即同步調用。在這一步中，實例已完成對選項的處理，意味著以下內容已被配置完畢：數據偵聽、計算屬性、方法、事件/偵聽器的回調函數。然而，掛載階段還沒開始，且 $el property 目前尚不可用。
-
----
-
-補充說明:
-
--   註 1
