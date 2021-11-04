@@ -45,7 +45,6 @@
             <li><a href="#updated">updated</a></li>
           </ul>
         </li>
-        
       </ul>
     </li>
   </ol>
