@@ -23,8 +23,20 @@
     <li>
       <a href="#生命週期">生命週期</a>
       <ul>
-        <li><a href="#beforeCreate">beforeCreate</a></li>
-        <li><a href="#created">created</a></li>
+        <li>
+          <a href="#創建實例時">創建實例時</a>
+          <ul>
+            <li><a href="#beforeCreate">beforeCreate</a></li>
+            <li><a href="#created">created</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#掛載到 DOM 時">掛載到 DOM 時</a>
+          <ul>
+            <li><a href="#beforeMount">beforeMount</a></li>
+            <li><a href="#mounted">mounted</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ol>
@@ -89,36 +101,40 @@ Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串�
 
 ---
 
+## 創建實例時
+
 <!-- beforeCreate -->
 
-### beforeCreate:
+-   ### beforeCreate:
 
--   類型:Function
--   詳細說明:
-    在實例初始化之後、進行數據偵聽和事件/偵聽器的配置之前同步調用。
+    -   類型:Function
+    -   詳細說明:
+        在實例初始化之後、進行數據偵聽和事件/偵聽器的配置之前同步調用。
 
 ---
 
 <!-- created -->
 
-### created
+-   ### created
 
--   類型:Function
--   詳細說明:
-    在實例創建完成後被立即同步調用。在這一步中，實例已完成對選項的處理，意味著以下內容已被配置完畢：數據偵聽、計算屬性、方法、事件/偵聽器的回調函數。然而，掛載階段還沒開始，且 $el property 目前尚不可用。
+    -   類型:Function
+    -   詳細說明:
+        在實例創建完成後被立即同步調用。在這一步中，實例已完成對選項的處理，意味著以下內容已被配置完畢：數據偵聽、計算屬性、方法、事件/偵聽器的回調函數。然而，掛載階段還沒開始，且 $el property 目前尚不可用。
+
+## 掛載到 DOM 時
 
 <!-- beforeMount -->
 
-### beforeMount
+-   ### beforeMount
 
--   類型：Function
--   詳細：
-    在實例初始化之後、進行數據偵聽和事件/偵聽器的配置之前同步調用。
+    -   類型：Function
+    -   詳細：
+        在實例初始化之後、進行數據偵聽和事件/偵聽器的配置之前同步調用。
 
 <!-- mounted -->
 
-### mounted
+-   ### mounted
 
--   類型：Function
--   詳細：
-    在實例創建完成後被立即同步調用。在這一步中，實例已完成對選項的處理，意味著以下內容已被配置完畢：數據偵聽、計算屬性、方法、事件/偵聽器的回調函數。然而，掛載階段還沒開始，且 $el property 目前尚不可用。
+    -   類型：Function
+    -   詳細：
+        在實例創建完成後被立即同步調用。在這一步中，實例已完成對選項的處理，意味著以下內容已被配置完畢：數據偵聽、計算屬性、方法、事件/偵聽器的回調函數。然而，掛載階段還沒開始，且 $el property 目前尚不可用。
