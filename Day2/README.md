@@ -10,9 +10,9 @@
     <li>
       <a href="#程式碼預覽">程式碼預覽</a>
       <ul>
-        <li><a href="#【Code】創建實例時">★創建實例時★</a></li>
-        <li><a href="#【Code】掛載到 DOM 時">★掛載到 DOM 時★</a></li>
-        <li><a href="#【Code】狀態被更新、網頁畫面重繪">★狀態被更新、網頁畫面重繪★</a></li>
+        <li><a href="#Code-創建實例時">★創建實例時★</a></li>
+        <li><a href="#Code-掛載到 DOM 時">★掛載到 DOM 時★</a></li>
+        <li><a href="#Code-狀態被更新、網頁畫面重繪">★狀態被更新、網頁畫面重繪★</a></li>
       </ul>
     </li>
     <li>
