@@ -63,7 +63,7 @@
     -   beforeMount、mounted
         -   https://codepen.io/pratnket/pen/abyqvze
 -   ## 狀態被更新、網頁畫面重繪
-    -   ## beforeMount、mounted
+    -   beforeMount、mounted
         -   https://codepen.io/pratnket/pen/BadYjYg
 
 ## 專案指令
