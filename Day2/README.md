@@ -10,9 +10,9 @@
     <li>
       <a href="#程式碼預覽">程式碼預覽</a>
       <ul>
-        <li><a href="#C創建實例時">C創建實例時</a></li>
-        <li><a href="#C掛載到 DOM 時">C掛載到 DOM 時</a></li>
-        <li><a href="#C狀態被更新、網頁畫面重繪">C狀態被更新、網頁畫面重繪</a></li>
+        <li><a href="#範例:創建實例時">範例:創建實例時</a></li>
+        <li><a href="#範例:掛載到 DOM 時">範例:掛載到 DOM 時</a></li>
+        <li><a href="#範例:狀態被更新、網頁畫面重繪">範例:狀態被更新、網頁畫面重繪</a></li>
       </ul>
     </li>
     <li>
@@ -56,13 +56,13 @@
 
 ## 程式碼預覽
 
--   ## C建立實體 Vue 與綁定
+-   ## 範例:建立實體 Vue 與綁定
     -   beforeCreate、created
         -   https://codepen.io/pratnket/pen/vYJpJQM
--   ## C模板編譯
+-   ## 範例:模板編譯
     -   beforeMount、mounted
         -   https://codepen.io/pratnket/pen/abyqvze
--   ## C狀態被更新、網頁畫面重繪
+-   ## 範例:狀態被更新、網頁畫面重繪
     -   beforeMount、mounted
         -   https://codepen.io/pratnket/pen/BadYjYg
 
