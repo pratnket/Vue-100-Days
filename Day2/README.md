@@ -1,6 +1,26 @@
 # Day02 - Vue 元件的生命週期與更新機制
 
-## 生命週期與 Hooks function
+<!-- 目錄 -->
+<details open>
+  <summary>目錄</summary>
+  <ol>
+    <li>
+      <a href="#生命週期圖">生命週期圖</a>
+    </li>
+    <li>
+      <a href="#程式碼預覽">程式碼預覽</a>
+    </li>
+    <li>
+      <a href="#生命週期">生命週期</a>
+      <ul>
+        <li><a href="#beforeCreate">beforeCreate</a></li>
+        <li><a href="#created">created</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
+
+## 生命週期圖
 
 ![image](public/image/Preview/status.png)
 
@@ -10,32 +30,12 @@
     -   beforeCreate、created
         -   https://codepen.io/pratnket/pen/vYJpJQM
 
-<!-- 目錄 -->
-<details open>
-  <summary>目錄</summary>
-  <ol>
-    <li>
-      <a href="#beforeCreate">beforeCreate</a>
-    </li>
-    <li>
-      <a href="#created">created</a>
-    </li>
-  </ol>
-</details>
+## 專案指令
 
-## 專案安裝
+-   yarn install // 專案安裝
+-   yarn serve // 開發編譯和熱重載
 
-```
-yarn install
-```
-
-### 開發編譯和熱重載
-
-```
-yarn serve
-```
-
-### 專案環境
+## 專案環境
 
 -   ESM 模組化技術
 -   "vue": "^2.6.11"
@@ -43,13 +43,9 @@ yarn serve
 -   "vuex": "^3.4.0"
 -   "vue-router": "^3.2.0"
 
-### 前言
+## 生命週期
 
 Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串的過程，我們將它稱作生命週期。 在這個過程中， Vue.js 提供了開發者在這些週期階段做對應處理的 callback function， 這些 callback function 我們就稱它叫生命週期的 Hooks function。
-
----
-
-生命週期:
 
 -   beforeCreate
     -   Vue 實體被建立，狀態與事件都尚未初始化
@@ -82,7 +78,7 @@ Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串�
 
 <!-- beforeCreate -->
 
-## beforeCreate:
+### beforeCreate:
 
 -   類型:Function
 -   詳細說明:
@@ -92,7 +88,7 @@ Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串�
 
 <!-- created -->
 
-## created
+### created
 
 -   類型:Function
 -   詳細說明:
