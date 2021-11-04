@@ -65,8 +65,4 @@ Vue 的實體物件從建立、掛載、更新，到銷毀移除，這一連串�
 
 ---
 
-![image](public/image/status.png)
-
-```
-
-```
+![image](public/image/Preview/status.png)
