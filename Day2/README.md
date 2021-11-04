@@ -11,11 +11,13 @@
         -   https://codepen.io/pratnket/pen/vYJpJQM
 
 <!-- 目錄 -->
-<details>
+<details open>
   <summary>目錄</summary>
   <ol>
     <li>
       <a href="#beforeCreate">beforeCreate</a>
+    </li>
+    <li>
       <a href="#created">created</a>
     </li>
   </ol>
